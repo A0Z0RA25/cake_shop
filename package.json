@@ -1,15 +1,16 @@
 {
+  "homepage": "https://a0z0ra25.github.io/cake_shop",
   "name": "e-commerce",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "dev": "vite",
     "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "gh-pages -d dist",
+    "lint": "eslint ."
   },
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "^6.7.2",
