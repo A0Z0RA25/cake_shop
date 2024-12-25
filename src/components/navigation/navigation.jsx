@@ -1,17 +1,14 @@
-
-function Navigation(){
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+function Navigation({cart}){
 
     const list = [
         {id: 1, name: "Home", link: "/#home-page"},
         {id: 2, name: "Products", link: "/#cake-container"},
-        {id: 3, name: "Contact", link: "/#"}
+        {id: 3, name: 'About Us', link: '/#aboutUs'},
+        {id: 4, name: "Contact", link: "/#"}
     ];
-
-    const dropDownList = [
-        {name: "yes"},
-        {name: "no"},
-        {name: "okay"}
-    ]
 
     return(
         <div className="fixed w-svw flex flex-wrap justify-evenly items-center gap-x-2">
@@ -25,12 +22,13 @@ function Navigation(){
                 </ul>
             </div>
             {/* Cart */}
-            <div>
-                <h1>Cart</h1>
+            <div className='group relative'>
+                <a href=""><FontAwesomeIcon className='group-hover:scale-110 duration-300 ease-in-out' icon={faCartShopping} /><span className='hidden  group-hover:inline-flex absolute group-hover:translate-x-2'>Cart</span></a>
+                <span className='bg-red-300 rounded-full absolute top-0 -left-2 text-xs px-1'>{cart}</span>
             </div>
             {/* Account */}
-            <div>
-                <h1>Account</h1>
+            <div className='group'>
+            <a href=""><FontAwesomeIcon className='group-hover:scale-110 duration-300 ease-in-out' icon={faUser} /><span className='hidden  group-hover:inline-flex absolute group-hover:translate-x-2'>User</span></a>
             </div>  
         </div>
     ) 

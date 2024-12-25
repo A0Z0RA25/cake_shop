@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 
 import { useState } from 'react';
-function Products(){
+function Products({ handleCart }){
 
     const productCat = ['All', 'Birthday Cakes', 'Wedding Cakes' , 'Cupcakes'];
 
@@ -31,9 +31,10 @@ function Products(){
     function handleCakeCat(e){
         setCakeCat(e.target.value === 'All' ? 'all' : e.target.value.replace(/\s+/g, '').toLowerCase())
     }
+    
 
     return(
-        <div id='cake-container' className="w-full min-h-svh h-full border">
+        <div id='cake-container' className="w-full min-h-svh h-full">
             {/* Products Header */}
             <div className="md:mt-10 flex md:justify-evenly flex-col md:flex-row justify-center items-center gap-y-2">
                 <h1 className="md:text-2xl">Our Special Products</h1>
@@ -68,7 +69,7 @@ function Products(){
                         {/* Buy Btn */}
                         <div className='flex gap-2 justify-center md:mt-3'>
                             <button className='bg-red-500 md:px-5 px-2 rounded-md text-white'>Order Now</button>
-                            <button><FontAwesomeIcon icon={faCartShopping} /></button>
+                            <button className='hover:scale-110 duration-300 ease-in-out' onClick={() => handleCart(cake)}><FontAwesomeIcon icon={faCartShopping} /></button>
                         </div>
                         </div>
                     ))}
