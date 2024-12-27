@@ -6,23 +6,27 @@ import wdcake1 from './wdcake1.png';
 import wdcake2 from './wdcake2.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
-
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
-function Products({ handleCart }){
+
+export const cakeContainer = [
+    {img: cake2, name: 'Chocolate', price: 900, type: 'cupcakes'},
+    {img: cake3, name: 'Vanilla', price: 750, type: 'cupcakes'},
+    {img: cake4, name: 'Karamel', price: 850, type: 'cupcakes'},
+    {img: bdcake1, name: 'Karamel', price: 850, type: 'birthdaycakes'},
+    {img: wdcake1, name: 'Karamel', price: 850, type: 'weddingcakes'},
+    {img: wdcake2, name: 'Karamel', price: 850, type: 'weddingcakes'},
+];
+
+function Products({ handleAddCart }){
 
     const productCat = ['All', 'Birthday Cakes', 'Wedding Cakes' , 'Cupcakes'];
 
-    const cakeContainer = [
-        {img: cake2, name: 'Chocolate', price: 900, type: 'cupcakes'},
-        {img: cake3, name: 'Vanilla', price: 750, type: 'cupcakes'},
-        {img: cake4, name: 'Karamel', price: 850, type: 'cupcakes'},
-        {img: bdcake1, name: 'Karamel', price: 850, type: 'birthdaycakes'},
-        {img: wdcake1, name: 'Karamel', price: 850, type: 'weddingcakes'},
-        {img: wdcake2, name: 'Karamel', price: 850, type: 'weddingcakes'},
-    ];
+    
 
     const [searchCake, setSearchCake] = useState('');
     const [cakeCat, setCakeCat] = useState('all');
+    const [heartColor, setHeartColor] = useState(false)
 
     function handleSearch(e) {
         setSearchCake(e.target.value.toLowerCase());
@@ -30,6 +34,10 @@ function Products({ handleCart }){
 
     function handleCakeCat(e){
         setCakeCat(e.target.value === 'All' ? 'all' : e.target.value.replace(/\s+/g, '').toLowerCase())
+    }
+
+    const handleFav = (index) => {
+        setHeartColor((fav) => ({...fav, [index] : !fav[index]}))
     }
     
 
@@ -59,7 +67,9 @@ function Products({ handleCart }){
                     {cakeContainer.filter((item) => (item.name.toLowerCase().includes(searchCake) || searchCake === '') &&
                                                     (cakeCat === 'all' || item.type === cakeCat)
                     ).map((cake, index) => (
-                        <div key={index} className='shadow-md md:px-5 px-1 py-3 rounded-md text-center'>
+                        <div key={index} className='relative shadow-md md:px-5 px-1 py-3 rounded-md text-center '>
+                        {/* add to favorite */}
+                         <button onClick={() => handleFav(index)}><FontAwesomeIcon className={`absolute left-5  ${heartColor[index] ? 'text-red-500' : 'text-black'}`} icon={faHeart} /></button>
                         <img className='md:h-[150px] md:w-[200px] h-[120px] w-[150px] mx-auto' src={cake.img} alt="" />
                         {/* Price */}
                         <div className=''>
@@ -69,7 +79,7 @@ function Products({ handleCart }){
                         {/* Buy Btn */}
                         <div className='flex gap-2 justify-center md:mt-3'>
                             <button className='bg-red-500 md:px-5 px-2 rounded-md text-white'>Order Now</button>
-                            <button className='hover:scale-110 duration-300 ease-in-out' onClick={() => handleCart(cake)}><FontAwesomeIcon icon={faCartShopping} /></button>
+                            <button className='hover:scale-110 duration-300 ease-in-out' onClick={() => handleAddCart(cake)}><FontAwesomeIcon icon={faCartShopping} /></button>
                         </div>
                         </div>
                     ))}
