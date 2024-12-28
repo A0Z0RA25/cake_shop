@@ -10,14 +10,29 @@ function App() {
 
   const [cart, setCart] = useState(0);
   const [showCart, setShowCart] = useState(false);
-  const [addCart, setAddCart] = useState([]);
+  const [addCart, setAddCart] = useState([
+    {name: "Ice Cream", quantity: 1}
+  ]);
 
-    function handleAddCart(cake){
-        setAddCart((eachItem) => [...eachItem, cake])
-    }
+  const handleAddCart = (cake) => {
+    setAddCart((prevCart) => {
+        const existingProductIndex = prevCart.findIndex((item) => item.id === cake.id);
+        if (existingProductIndex >= 0) {
+            const updatedCart = [...prevCart];
+            updatedCart[existingProductIndex].quantity += 1; // Increment quantity
+            return updatedCart;
+        } else {
+            return [...prevCart, { ...cake, quantity: 1 }]; // Add new product
+        }
+    });
+};
 
     function handleShowCart(){
       setShowCart(!showCart);
+    }
+
+    function handleCloseCart(){
+      setShowCart(false)
     }
 
   return(
@@ -26,7 +41,7 @@ function App() {
     <Hero />
     <AboutUs />
     <Products handleAddCart={handleAddCart} />
-    <Cart showCart={showCart} addCart={addCart} />
+    <Cart handleCloseCart={handleCloseCart} showCart={showCart} addCart={addCart} />
     </>
   )
 }

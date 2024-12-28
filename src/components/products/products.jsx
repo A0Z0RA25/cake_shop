@@ -10,12 +10,12 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
 
 export const cakeContainer = [
-    {img: cake2, name: 'Chocolate', price: 900, type: 'cupcakes'},
-    {img: cake3, name: 'Vanilla', price: 750, type: 'cupcakes'},
-    {img: cake4, name: 'Karamel', price: 850, type: 'cupcakes'},
-    {img: bdcake1, name: 'Karamel', price: 850, type: 'birthdaycakes'},
-    {img: wdcake1, name: 'Karamel', price: 850, type: 'weddingcakes'},
-    {img: wdcake2, name: 'Karamel', price: 850, type: 'weddingcakes'},
+    {id: 1, img: cake2, name: 'Chocolate', price: 900, type: 'cupcakes'},
+    {id: 2, img: cake3, name: 'Vanilla', price: 750, type: 'cupcakes'},
+    {id: 3, img: cake4, name: 'Karamel', price: 850, type: 'cupcakes'},
+    {id: 4, img: bdcake1, name: 'Karamel', price: 850, type: 'birthdaycakes'},
+    {id: 5, img: wdcake1, name: 'Karamel', price: 850, type: 'weddingcakes'},
+    {id: 6, img: wdcake2, name: 'Karamel', price: 850, type: 'weddingcakes'},
 ];
 
 function Products({ handleAddCart }){
