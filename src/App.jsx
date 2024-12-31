@@ -6,7 +6,6 @@ import Products from './components/products/products'
 import AboutUs from './components/about/about'
 import Cart from './components/cart/cart'
 
-
 function App() {
 
   const [cartCount, setCartCount] = useState(0);
@@ -14,41 +13,21 @@ function App() {
   const [addCart, setAddCart] = useState([]);
 
   const handleAddCart = (cake) => {
-    setAddCart((prevCart) => {
-        const existCake = prevCart.findIndex((item) => item.id === cake.id);
-        if (existCake >= 0) {
-            const updatedCart = [...prevCart];
-            updatedCart[existCake].quantity += 1;
-            return updatedCart;
-        } else {
-            setCartCount(addCart.length + 1)
-            return [...prevCart, { ...cake, quantity: 1 }];
-        }
-    });
-};
-
-  const handleIncrease = (each) => {
-        setAddCart((prevCart) =>
-            prevCart.map((item) =>
-                item.id === each.id 
-                    ? { ...item, quantity: item.quantity + 1 } 
-                    : item
-            )
-        );
-    };
-
-  const handleDecrease = (each) => {
-    setAddCart((prevCart) =>
-        prevCart.map((item) =>
-            item.id === each.id 
-                ? { ...item, quantity: item.quantity - 1 } 
-                : item
-        )
-    );
+    const exist = addCart.find((currElem) => {
+      return currElem.id === cake.id
+    })
+    if(exist){
+      alert("This is already in the cart.")
+    } else{
+      setAddCart([...addCart, {...cake, quantity: 1}])
+      alert("Added to the cart.")
+      setCartCount(addCart.length + 1)
+    }
 };
 
   function handleShowCart(){
     setShowCart(!showCart);
+    console.log("working")
   }
 
   function handleCloseCart(){
@@ -61,7 +40,7 @@ function App() {
     <Hero />
     <AboutUs />
     <Products handleAddCart={handleAddCart} />
-    <Cart handleIncrease={handleIncrease} handleCloseCart={handleCloseCart} showCart={showCart} addCart={addCart} />
+    <Cart cartCount={cartCount} setCartCount={setCartCount} handleCloseCart={handleCloseCart} showCart={showCart} setAddCart={setAddCart} addCart={addCart} />
     </>
   )
 }
