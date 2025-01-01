@@ -1,10 +1,11 @@
-import { useState } from 'react'
-import './App.css'
-import Navigation from './components/navigation/navigation'
-import Hero from './components/hero/hero'
-import Products from './components/products/products'
-import AboutUs from './components/about/about'
-import Cart from './components/cart/cart'
+import { useState } from 'react';
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import './App.css';
+import Navigation from './components/navigation/navigation';
+import Hero from './components/hero/hero';
+import Products from './components/products/products';
+import AboutUs from './components/about/about';
+import Cart from './components/cart/cart';
 
 function App() {
 
@@ -35,6 +36,7 @@ function App() {
   }
 
   return(
+    <BrowserRouter basename="/cake_shop">
     <>
     <Navigation cartCount={cartCount} handleShowCart={handleShowCart}  />
     <Hero />
@@ -42,6 +44,7 @@ function App() {
     <Products handleAddCart={handleAddCart} />
     <Cart cartCount={cartCount} setCartCount={setCartCount} handleCloseCart={handleCloseCart} showCart={showCart} setAddCart={setAddCart} addCart={addCart} />
     </>
+    </BrowserRouter>
   )
 }
 
