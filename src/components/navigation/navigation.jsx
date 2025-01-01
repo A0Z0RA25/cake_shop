@@ -1,8 +1,10 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
-import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
-import { faCakeCandles } from '@fortawesome/free-solid-svg-icons';
+import { faCartShopping, faCakeCandles, faRightToBracket, faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
+import { useAuth0 } from '@auth0/auth0-react';
+
 function Navigation({cartCount, handleShowCart}){
+
+    const { loginWithRedirect,  user, isAuthenticated } = useAuth0();
 
     const list = [
         {id: 1, name: "Home", link: "#home-page"},
@@ -12,7 +14,7 @@ function Navigation({cartCount, handleShowCart}){
     ];
 
     return(
-        <div className="fixed w-svw flex flex-wrap justify-evenly items-center gap-x-2 z-30">
+        <div className="fixed w-svw flex flex-wrap justify-evenly items-center gap-x-2 z-30 bg-orange-300 py-2">
             <div className="font-bold md:text-2xl"><FontAwesomeIcon icon={faCakeCandles} />Cake's</div>
             { /*list*/ }
             <div className="md:w-1/2">
@@ -27,10 +29,19 @@ function Navigation({cartCount, handleShowCart}){
                 <button onClick={handleShowCart}><FontAwesomeIcon className='group-hover:scale-110 duration-300 ease-in-out' icon={faCartShopping} /><span className='hidden  group-hover:inline-flex absolute group-hover:translate-x-2'>Cart</span></button>
                 <span className='bg-red-300 rounded-full absolute top-0 -left-2 text-xs px-1'>{cartCount}</span>
             </div>
-            {/* Account */}
-            <div className='group'>
-            <a href=""><FontAwesomeIcon className='group-hover:scale-110 duration-300 ease-in-out' icon={faUser} /><span className='hidden  group-hover:inline-flex absolute group-hover:translate-x-2'>User</span></a>
-            </div>  
+            { isAuthenticated ? 
+            //log in
+            (<div className='group'>
+                <button onClick={() => loginWithRedirect()}><FontAwesomeIcon className='group-hover:scale-110 duration-300 ease-in-out' icon={faRightToBracket} /><span className='hidden  group-hover:inline-flex absolute group-hover:translate-x-2'>Log in</span></button>
+                <p>{user.email}</p>
+            </div> ) : ( 
+            // log out   
+            <div className='group flex'>
+                <button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}><FontAwesomeIcon className='group-hover:scale-110 duration-300 ease-in-out' icon={faRightFromBracket} /><span className='hidden  group-hover:inline-flex absolute group-hover:translate-x-2'>Log out</span></button>
+            </div>
+            )} 
+             
+            
         </div>
     ) 
 }

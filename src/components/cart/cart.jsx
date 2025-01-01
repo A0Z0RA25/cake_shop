@@ -45,8 +45,11 @@ function Cart({showCart, addCart, setAddCart, handleCloseCart, setCartCount, car
             <div className="flex justify-evenly gap-x-36 my-2">
                 <h1 className="md:text-2xl font-semibold text-center">Cart</h1>
                 <button onClick={handleCloseCart} className="bg-white px-3 rounded-full"><FontAwesomeIcon icon={faXmark} /></button>
-            </div>     
-            {/* products */}
+            </div> 
+            {addCart.length == 0 ? (
+                <div className="flex justify-center h-full">
+                    <h1 className="my-auto">Your cart is empty!</h1>
+                </div>) :  (  
             <div className="overflow-y-scroll h-full pb-32">
                 {addCart.map((each) => (
                     <div className="flex justify-around bg-white shadow-md m-1">
@@ -71,6 +74,7 @@ function Cart({showCart, addCart, setAddCart, handleCloseCart, setCartCount, car
                     </div>
                 ))} 
             </div>
+            )}
             {/* subtotal */}
             {addCart.length > 0 && 
                 <div className="bg-white shadow-xl absolute bottom-0 w-full px-10 py-2">
