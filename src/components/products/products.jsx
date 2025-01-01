@@ -7,7 +7,7 @@ import { useState } from 'react';
 function Products({ handleAddCart }){
 
     const productCat = ['All', 'Birthday Cakes', 'Wedding Cakes' , 'Cupcakes'];
-    
+
     const [cakeCat, setCakeCat] = useState(cakeContainer);
     const [findCake, setFindCake] = useState(null)
     const [heartColor, setHeartColor] = useState(false);
@@ -57,8 +57,8 @@ function Products({ handleAddCart }){
                 <div className="group w-[150px] text-center">
                     <h1>Categories</h1>
                     <ul className='group-hover:block hidden absolute bg-white shadow-xl z-20'>
-                        {productCat.map((eachCat) => (
-                            <li onClick={() => handleCat(eachCat)} className='hover:bg-gray-100 md:px-5 py-2'>{eachCat}</li>
+                        {productCat.map((eachCat, index) => (
+                            <li key={index} onClick={() => handleCat(eachCat)} className='hover:bg-gray-100 md:px-5 py-2'>{eachCat}</li>
                         ))}
                     </ul>
                 </div>
