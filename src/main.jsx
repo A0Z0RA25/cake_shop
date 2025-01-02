@@ -10,7 +10,7 @@ createRoot(document.getElementById('root')).render(
     domain="dev-7smbydghn55vazmj.us.auth0.com"
     clientId="RxvWrc6Y0fwuwLzwo29wjdBhqtj6MTfo"
     authorizationParams={{
-      redirect_uri: window.location.origin,
+     redirect_uri: window.location.origin + '/cake_shop'
     }}
   >
     <Router>
