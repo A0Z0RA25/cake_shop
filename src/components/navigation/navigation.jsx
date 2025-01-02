@@ -15,7 +15,7 @@ function Navigation({cartCount, handleShowCart}){
     ];
 
     return(
-        <div className="fixed w-svw flex flex-wrap justify-evenly items-center gap-x-2 z-30 bg-banner text-white py-2">
+        <div className="fixed w-svw flex flex-wrap justify-evenly items-center gap-x-2 z-30 bg-banner py-2">
             <div className="font-bold md:text-2xl"><FontAwesomeIcon icon={faCakeCandles} />Cake's</div>
             { /*list*/ }
             <div className="md:w-1/2">

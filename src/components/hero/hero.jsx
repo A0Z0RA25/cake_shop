@@ -4,7 +4,7 @@ function Hero(){
 
     return(
         <div id='home-page' className='text-white md:flex grid grid-cols-1 group px-5 justify-evenly items-center min-h-svh h-full'>
-            <div className='md:w-1/2 text-center grid grid-rows-3 gap-2 order-2 md:order-1'>
+            <div className='md:w-1/2 text-center mt-20 grid grid-rows-3 md:gap-2 order-2 md:order-1'>
                 <h1 className='md:text-3xl font-serif font-bold '>
                     Baking Dreams into reality
                 </h1>

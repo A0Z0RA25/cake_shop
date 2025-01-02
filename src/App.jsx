@@ -38,9 +38,9 @@ function App() {
     <>
     <Navigation cartCount={cartCount} handleShowCart={handleShowCart}  />
     <Hero />
-    <AboutUs />
     <Products handleAddCart={handleAddCart} />
     <Cart cartCount={cartCount} setCartCount={setCartCount} handleCloseCart={handleCloseCart} showCart={showCart} setAddCart={setAddCart} addCart={addCart} />
+    <AboutUs />
     </>
   )
 }
