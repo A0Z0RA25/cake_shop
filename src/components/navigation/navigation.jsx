@@ -35,7 +35,7 @@ function Navigation({cartCount, handleShowCart}){
             // log out   
             <div className='group'>
                 <h1>{user.name}</h1>
-                <button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}><FontAwesomeIcon className='group-hover:scale-110 duration-300 ease-in-out' icon={faRightFromBracket} /><span className='hidden  group-hover:inline-flex absolute group-hover:translate-x-2'>Log out</span></button>
+                <button onClick={() => logout({ logoutParams: { returnTo: "https://a0z0ra25.github.io/cake_shop" } })}><FontAwesomeIcon className='group-hover:scale-110 duration-300 ease-in-out' icon={faRightFromBracket} /><span className='hidden  group-hover:inline-flex absolute group-hover:translate-x-2'>Log out</span></button>
             </div>
             
             ) : ( 

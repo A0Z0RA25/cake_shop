@@ -10,10 +10,10 @@ createRoot(document.getElementById('root')).render(
     domain="dev-7smbydghn55vazmj.us.auth0.com"
     clientId="RxvWrc6Y0fwuwLzwo29wjdBhqtj6MTfo"
     authorizationParams={{
-     redirect_uri: window.location.origin + '/cake_shop'
+     redirect_uri: "https://a0z0ra25.github.io/cake_shop"
     }}
   >
-    <Router>
+    <Router basename="/cake_shop">
       <App />
     </Router>
   </Auth0Provider>
