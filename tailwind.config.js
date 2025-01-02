@@ -8,7 +8,7 @@ export default {
     extend: {
       colors: { 
         blue: "#C6E7FF",
-        banner: "#D4F6FF",
+        banner: "#FFCCEA",
         color: "#FBFBFB",
         btn: "#FFDDAE",
       },
