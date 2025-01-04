@@ -55,22 +55,22 @@ function Products({ handleAddCart }){
     return(
         <div id='cake-container' className="w-full min-h-svh h-full bg-productBg py-10">
             {/* products container */}
-            <div className='md:flex flex-row justify-around md:px-3 w-full grid grid-cols-1'>
+            <div className='md:flex flex-row justify-between md:px-3 w-full grid grid-cols-1'>
             {/* list of category */}
-            <div className='h-full grid md:grid-rows-1 md:grid-cols-1 grid-cols-1 md:mt-5 gap-y-5 gap-x-2 md:p-0 p-2'>
+            <div className='h-full grid md:grid-rows-1 md:grid-cols-1 grid-cols-2 md:mt-5 gap-y-5 gap-x-2 md:p-0 p-2'>
                 {/* Search Bar */}
                 <div>
-                    <input placeholder='Search product' id='searchProduct' onKeyUp={(e) => handleSearchCake(e)} className="border text-xs md:w-1/2 w-[150px] p-1 border-black" type="text" />
+                    <input placeholder='Search product' id='searchProduct' onKeyUp={(e) => handleSearchCake(e)} className="border text-xs md:w-full w-[150px] p-1 border-black" type="text" />
                 </div>
                 {/* list */}
-                <div className='border relative border-black md:h-full md:w-56 w-full hidden md:block'>
+                <div className='border group relative border-black md:h-full md:w-56 w-full md:block'>
                     <div className='relative'>
-                        <h1 className='bg-banner text-white w-[70%] text-center rounded-br-md'>Categories</h1>
+                        <h1 className='bg-banner text-white md:w-[70%] text-center rounded-br-md'>Categories</h1>
                     </div>
-                    <div className="group text-right overflow-hidden">
-                        <ul className='z-20'>
+                    <div className="md:text-right text-center overflow-hidden">
+                        <ul className='z-20 md:block hidden group-hover:block md:relative absolute'>
                             {productCat.map((eachCat, index) => (
-                                <li key={index} onClick={() => handleCat(eachCat)} className='text-sm md:w-[100%] md:-translate-x-20 hover:translate-x-0 ease-in-out duration-500 border rounded-r-xl bg-banner text-white my-1 border-black md:px-5 px-2 py-2'>{eachCat}</li>
+                                <li key={index} onClick={() => handleCat(eachCat)} className=' text-sm md:w-[100%] md:-translate-x-20 md:hover:translate-x-0 ease-in-out duration-500 border md:rounded-r-xl bg-banner text-white my-1 border-black md:px-5 px-2 py-2'>{eachCat}</li>
                             ))}
                         </ul>
                     </div>
@@ -89,7 +89,7 @@ function Products({ handleAddCart }){
             </div>
             
             {/* Products */}
-            <div>
+            <div className='md:w-[75%] md:px-10'>
                 {/* Products Header */}
                 <div className="md:mt-5 flex md:justify-around flex-col md:flex-row justify-center items-center gap-y-2">
                     <h1 className="md:text-2xl">Featured</h1>
@@ -99,7 +99,7 @@ function Products({ handleAddCart }){
                 (<div className='md:text-2xl flex justify-center items-center text-center mt-20'>{findCake}</div>) :
                 (<div className='grid md:grid-cols-3 grid-cols-2 md:gap-x-5 md:gap-y-8 gap-2 md:p-0 p-2 items-center justify-evenly md:mt-5'>
                     {cakeCat.map((cake, index) => (
-                    <div key={index} className='relative hover:-translate-y-3 duration-500 ease-in-out bg-banner text-white shadow-md md:px-3 px-1 py-3 rounded-md text-center '>
+                    <div key={index} className='relative hover:-translate-y-1 md:hover:-translate-y-3 duration-500 ease-in-out bg-white text-banner shadow-md md:px-3 px-1 py-3 rounded-md text-center '>
                         {/* add to favorite */}
                          <button onClick={() => handleFav(index)}><FontAwesomeIcon className={`absolute left-5 text-white  ${heartColor[index] ? 'text-red-500' : 'text-black'}`} icon={faHeart} /></button>
                         <img className='md:h-[100px] md:w-[150px] h-[100px] w-[130px] mx-auto' src={cake.img} alt="" />
@@ -110,7 +110,7 @@ function Products({ handleAddCart }){
                         </div>
                         {/* Buy Btn */}
                         <div className='flex gap-2 justify-center md:mt-3'>
-                            <button className='hover:scale-105 duration-300 ease-in-out border bg-white md:px-5 px-2 rounded-md text-black'>Order Now</button>
+                            <button className='hover:scale-105 duration-300 ease-in-out border border-white text-white bg-banner md:px-5 px-2 rounded-md'>Order Now</button>
                             <button className='hover:scale-110 duration-300 ease-in-out' onClick={() => handleAddCart(cake)}><FontAwesomeIcon icon={faCartShopping} /></button>
                         </div>
                     </div>
