@@ -12,10 +12,10 @@ function Hero(){
                     impus dolor sit adipicing elit
                 </p>
                 <div className='h-fit md:mt-16'>
-                    <button className='border hover:scale-105 duration-500 ease-in-out bg-white hover:bg-orange-400 hover:text-white border-black px-3 py-1 mx-2 shadow-sm rounded-lg'>
+                    <button className='border hover:scale-105 duration-500 ease-in-out bg-white border-black px-3 py-1 mx-2 shadow-sm rounded-lg'>
                         <a href="#product">Explore More</a>
                     </button>
-                    <button className='border hover:scale-105 duration-500 ease-in-out bg-banner text-white hover:bg-orange-400 hover:text-white font-serif border-black px-3 py-1 shadow-sm rounded-lg'>Order Now</button>
+                    <button className='border hover:scale-105 duration-500 ease-in-out bg-banner text-white hover:text-white font-serif border-black px-3 py-1 shadow-sm rounded-lg'>Order Now</button>
                 </div>
             </div>
             <div className='md:order-2 md:m-auto'>

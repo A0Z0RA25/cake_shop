@@ -35,7 +35,7 @@ function Navigation({cartCount, handleShowCart}){
             {/* Cart */}
             <div className='group relative order-3 text-homeBg'>
                 <button onClick={handleShowCart}><FontAwesomeIcon className='group-hover:scale-110 duration-300 ease-in-out' icon={faCartShopping} /></button>
-                <span className='bg-productBg rounded-full absolute top-0 -left-2 text-xs px-1'>{cartCount}</span>
+                <span className='bg-productBg text-black rounded-full absolute top-0 -left-2 text-xs px-1'>{cartCount}</span>
             </div>
             { isAuthenticated ? 
             (

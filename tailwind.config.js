@@ -12,6 +12,7 @@ export default {
         homeBg: "#F0BB78",
         productBg: "#ede9e2",
         tColor: "#FFF0DC",
+        cartBg: "#825B32",
         btn: "#FFDDAE",
       },
       fontFamily: {
