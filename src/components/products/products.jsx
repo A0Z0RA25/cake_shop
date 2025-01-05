@@ -89,7 +89,7 @@ function Products({ handleAddCart }){
             </div>
             
             {/* Products */}
-            <div className='md:w-[75%] md:px-10'>
+            <div className='md:w-[75%] md:px-10 relative md:pb-10'>
                 {/* Products Header */}
                 <div className="md:mt-5 flex md:justify-around flex-col md:flex-row justify-center items-center gap-y-2">
                     <h1 className="md:text-2xl">Featured</h1>
@@ -97,7 +97,7 @@ function Products({ handleAddCart }){
                 {findCake ? 
                 /* Not found */
                 (<div className='md:text-2xl flex justify-center items-center text-center mt-20'>{findCake}</div>) :
-                (<div className='grid md:grid-cols-3 grid-cols-2 md:gap-x-5 md:gap-y-8 gap-2 md:p-0 p-2 items-center justify-evenly md:mt-5'>
+                (<div className='grid md:grid-cols-3 grid-cols-2 md:gap-x-5 md:gap-y-4 gap-2 md:p-0 p-2 items-center justify-evenly md:mt-5'>
                     {cakeCat.map((cake, index) => (
                     <div key={index} className='relative hover:-translate-y-1 md:hover:-translate-y-3 duration-500 ease-in-out bg-white text-banner shadow-md md:px-3 px-1 py-3 rounded-md text-center '>
                         {/* add to favorite */}
@@ -115,7 +115,9 @@ function Products({ handleAddCart }){
                         </div>
                     </div>
                     ))}
+                    
                 </div>)}
+                <button className={`my-2 text-red-500 right-[50%] absolute bottom-0 ${findCake ? "hidden" : "block"}`}>See more</button>
             </div> 
             </div>
             
