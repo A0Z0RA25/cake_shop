@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping, faRightToBracket, faRightFromBracket, faCakeCandles, faBars } from '@fortawesome/free-solid-svg-icons';
 
@@ -18,7 +19,12 @@ function Navigation({cartCount, handleShowCart}){
 
     return(
         
-        <div className="fixed w-svw flex flex-wrap justify-evenly items-center z-30 bg-banner text-white py-2 shadow-xl font-text md:text-xl">
+        <motion.div 
+            className="fixed w-svw flex flex-wrap justify-evenly items-center z-30 bg-banner text-white py-2 shadow-xl font-text md:text-xl"
+            initial={{ y: -10, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            >
             <div className="order-2 md:order-1 font-bold md:text-2xl flex items-center gap-x-2">
                 <FontAwesomeIcon className='text-white' icon={faCakeCandles} />
                 <h1>sweet cakes</h1>
@@ -52,7 +58,7 @@ function Navigation({cartCount, handleShowCart}){
             </div>
             )} 
             
-        </div>
+        </motion.div>
     ) 
 }
 export default Navigation;
