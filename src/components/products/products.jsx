@@ -18,7 +18,7 @@ function Products({ handleAddCart }){
     const [cakeCat, setCakeCat] = useState(showCakes);
     const [findCake, setFindCake] = useState(null)
     const [heartColor, setHeartColor] = useState(false);
-    const [hideShowMore, setHideShowMore] = useState(false)
+    const [hideShowMore, setHideShowMore] = useState(false);
 
     const handleShowMore = () => {
         setHideShowMore(!hideShowMore)
@@ -63,7 +63,7 @@ function Products({ handleAddCart }){
     }
 
     return(
-        <div id='cake-container' className="w-full min-h-svh h-full bg-productBg md:py-9">
+        <div id='cake-container' className="w-full min-h-svh h-full bg-productBg md:py-9 pt-10">
             {/* products container */}
             <div className='md:flex flex-row justify-between md:px-3 w-full grid grid-cols-1'>
             {/* list of category */}
